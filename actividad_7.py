@@ -25,6 +25,7 @@ while opcion!=4 :
                 else:
                     for j in range(cantidad_cursos) :
                         nombre_curso=input("Ingrese el nombre del curso: ")
+                        codigo=int(input("Ingrese el codigo del curso: "))
                         nota_tarea=int(input("Ingrese la nota de la tarea [0 a 100]: "))
                         if nota_tarea < 0 or nota_tarea > 100 :
                             print("Ingreso un dato incorrecto")
@@ -41,7 +42,8 @@ while opcion!=4 :
                                         "nombre" : nombre,
                                         "edad" : edad,
                                         "carrera" : carrera,
-                                        "nombre_curso" : {
+                                        estudiantes[codigo] : {
+                                            "nombre_curso" : nombre_curso,
                                             "nota_tarea" : nota_tarea,
                                             "nota_parcial" : nota_parcial,
                                             "nota_proyecto" : nota_proyecto
@@ -51,15 +53,19 @@ while opcion!=4 :
     elif opcion == 2 :
         print("\nEstudiantes registrados")
         promedio=0
-        for carnet, datos in estudiantes.items():
-            print(f"\nCarnet: {carnet}")
+        for carne, datos in estudiantes.items():
+            print(f"Carnet: {carne}")
             print(f"Nombre: {datos['nombre']}")
             print(f"Edad: {datos['edad']}")
             print(f"Carrera: {datos['carrera']}")
-            print("\nCursos")
-            print(f"Nombre curso: {datos['nombre_curso']}")
-            print(f"Nota de tarea: {datos["nombre-curso"],["nota_tarea"]}")
-            print(f"Nota de parcial: {datos["nombre-curso"], ["nota_parcial"]}")
-            print(f"Nota de proyecto: {datos["nombre-curso"], ["nota_proyecto"]}")
-            promedio= (nota_parcial + nota_proyecto + nota_parcial)/3
+            print("Cursos")
+            for carne, datos2 in estudiantes.items():
+                print(f"Nombre del curso: {datos2['nombre_curso']}")
+                print(f"Nota de tarea: {datos2['nota_tarea']}")
+                print(f"Nota de parcial: {datos2['nota_parcial']}")
+                print(f"nota de proyecto: {datos2['nota_proyecto']}")
+
+
+
+
 
